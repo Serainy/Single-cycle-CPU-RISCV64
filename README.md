@@ -1,5 +1,7 @@
-# Arch-2024-Spring
-single-cycle-CPU-RISCV64
+# Arch-2024-Spring 
+
+# single-cycle-CPU-RISCV64
+
 > 2024 Spring Computer Organization and Architecture(H) Course Code Repository.
 
 Arch-2024-Sping  
@@ -19,14 +21,12 @@ Arch-2024-Sping
 生成波形图：
 make test-lab5 VOPT="--dump-wave"
 
-Build:
-  Linux 环境（推荐Ubuntu 20.04或更高版本）
-  Verilator
-  GTKWave
-  Vivado 2018.3（其它版本可能会有不兼容）
+## Build:
 
+有些链接详见：[实验环境搭建 · Wiki · fudan-systa / Arch-2023Spring-Fudan · GitLab](https://gitlab.com/fudan-systa/arch-2023spring-fudan/-/wikis/实验准备/实验环境搭建)
 
-1 Linux 环境安装
+### 1 Linux 环境安装（推荐Ubuntu 20.04或更高版本）
+
 有三种方案：
 
 Windows+WSL
@@ -41,33 +41,34 @@ Linux 原生系统
 配置 apt 源（修改 /etc/apt/sources.list ，推荐中科大源）
 安装一些基本的软件包sudo apt install git perl python3 make autoconf g++ flex bison ccache
 
+### 2 仿真器 Verilator
 
-
-2 仿真器 Verilator
 我们将使用 verilator 进行电路仿真。需要 verilator >= 4.200 版本。Verilator 没有 Windows 版本的，需要在 Linux 环境中运行。
 无论你使用什么版本的 Linux，我们都推荐从源码进行编译。
 
-cd ~ #如果使用 WSL，这个目录在 C 盘的某个位置
-git clone git://github.com/verilator/verilator #卡了多试几次，或者换成https://gitlab.com/fudan-systa/verilator
-cd verilator
-git checkout v4.210
-autoconf #如果显示 not found，那么sudo apt install autoconf后再执行 autoconf
-./configure
-make -j12  #如果这一步出现问题，改成make -j4或者直接make
-sudo apt remove verilator #卸载已有的版本
-sudo make uninstall
-sudo make install
-verilator --version  #查看verilator的版本
+`cd ~ #如果使用 WSL，这个目录在 C 盘的某个位置`
+`git clone git://github.com/verilator/verilator #卡了多试几次，或者换成https://gitlab.com/fudan-systa/verilator`
+`cd verilator`
+`git checkout v4.210`
+`autoconf #如果显示 not found，那么sudo apt install autoconf后再执行 autoconf`
+`./configure`
+`make -j12  #如果这一步出现问题，改成make -j4或者直接make`
+`sudo apt remove verilator #卸载已有的版本`
+`sudo make uninstall`
+`sudo make install`
+`verilator --version  #查看verilator的版本`
 
 
 如果报某个头文件 not found，请参考 https://verilator.org/guide/latest/install.html#git-quick-install
 
-3 波形图软件 GTKWave
+### 3 波形图软件 GTKWave
+
 我们将使用 GTKWave 软件查看仿真波形图。
 如果你使用 Linux 虚拟机或 Linux 原生系统，只需：
 
-sudo apt install gtkwave
+`sudo apt install gtkwave`
 运行 GTKwave： gtkwave trace.fst
 
+如果你使用的是 Windows + WSL，则需要安装 GTKwave 的 Windows 版本，使用时，双击 fst 波形图文件，设置 gtkwave/bin/gtkwave.exe 为默认打开程序即可。
 
-如果你使用的是 Windows + WSL，则需要安装 GTKwave 的 Windows 版本，点击此处下载压缩文件，使用时，双击 fst 波形图文件，设置 gtkwave/bin/gtkwave.exe 为默认打开程序即可。
+### 4   Vivado 2018.3（其它版本可能会有不兼容）
