@@ -1,8 +1,8 @@
-# Arch-2024-Spring-Fudan
-
+# Arch-2024-Spring
+single-cycle-CPU-RISCV64
 > 2024 Spring Computer Organization and Architecture(H) Course Code Repository.
 
-Arch-2024-Sping-FDU  
+Arch-2024-Sping  
 │── build：仿真测试时才会生成的目录  
 │── difftest：仿真测试框架  
 │── ready-to-run：仿真测试文件目录（包括汇编文件和二进制文件等）  
